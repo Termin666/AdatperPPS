@@ -4,9 +4,8 @@ from Layer.HttpModules.HttpModuleInterface import HttpModuleInterface
 
 
 class MessageHandlerInterface(ABC):
-    @abstractmethod
     def __init__(self, httpModule: HttpModuleInterface):
-        pass
+        self.httpModule = httpModule
 
     @abstractmethod
     def handle_message(self, ch, method, properties, body):
