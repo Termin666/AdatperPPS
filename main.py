@@ -8,8 +8,8 @@ from Layer.RabbitMQClient.RabbitMQClient import RabbitMQClient
 def main():
     connect = RabbitMQClient()
     connect.start()
-    connect.add_topic("rating_exchange", ConfirmReportHandler(ConfirmReport()))
-    connect.add_topic("user_exchange", CreateUserInPPSHandler(CreateUserInPPS()))
+    connect.add_topic("rating_routingKey", ConfirmReportHandler(ConfirmReport()))
+    connect.add_topic("user_routingKey", CreateUserInPPSHandler(CreateUserInPPS()))
 
     connect.start_consuming()
 
