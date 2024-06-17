@@ -25,12 +25,10 @@ class CreateUserInPPS(HttpModuleInterface):
         if response.status_code != 201:
             print(f"Ошибка: HTTP {response.status_code}")
 
-            # Попытка извлечь сообщение об ошибке из тела ответа
             try:
                 error_message = response.json().get('detail', 'Неизвестная ошибка')
                 print(f"Сообщение об ошибке: {error_message}")
             except ValueError:
-                # Если ответ не в формате JSON или не содержит ключ 'error'
                 print("Не удалось получить детали ошибки из ответа.")
         else:
             print("Запрос выполнен успешно.")

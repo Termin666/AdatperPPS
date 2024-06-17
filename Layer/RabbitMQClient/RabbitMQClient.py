@@ -16,7 +16,7 @@ class RabbitMQClient:
         print("Connection to RabbitMQ established")
 
     def add_topic(self, routing_key, handler_class: MessageHandlerInterface):
-        queue_name = f"{routing_key}_queue"  # Создаем уникальное имя очереди для каждого routing key
+        queue_name = f"{routing_key}_queue"
         self.topics[routing_key] = handler_class
         self.channel.queue_declare(queue=queue_name, durable=False)
         self.channel.queue_bind(queue=queue_name, exchange='rating_exchange', routing_key=routing_key)

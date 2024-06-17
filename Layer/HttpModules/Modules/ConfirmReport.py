@@ -25,12 +25,10 @@ class ConfirmReport(HttpModuleInterface):
 
             headers = {
                 'Content-Type': 'application/json',
-                'Authorization': f'Basic {auth_encoded}'  # Формируем заголовок авторизации
+                'Authorization': f'Basic {auth_encoded}'
             }
 
             response = requests.post(url, json=data, headers=headers)
 
             if response.status_code != 200:
                 raise requests.RequestException(f"Ошибка выполнения запроса  {response.status_code}")
-            else:
-                print("Заебись")
